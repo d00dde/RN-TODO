@@ -1,11 +1,12 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { THEME } from '../theme'
+import { TextRobotoBold } from './ui/TextRobotoBold'
 
 export const Navbar = ({ title }) => {
   return (
     <View style={styles.navbar}>
-      <Text style={styles.text}>{title}</Text>
+      <TextRobotoBold style={styles.text}>{title}</TextRobotoBold>
     </View>
   )
 }

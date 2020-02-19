@@ -1,5 +1,6 @@
 import React from 'react'
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import { TextRoboto } from './ui/TextRoboto'
 
 export const Todo = ({ todo, onRemove, onOpen }) => {
   return (
@@ -9,7 +10,7 @@ export const Todo = ({ todo, onRemove, onOpen }) => {
       onLongPress={onRemove.bind(null, todo.id)}
     >
       <View style={styles.todo}>
-        <Text style={styles.title}>{todo.title}</Text>
+        <TextRoboto >{todo.title}</TextRoboto>
       </View>
     </TouchableOpacity>
   )
@@ -25,7 +26,4 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10
   },
-  title: {
-    fontFamily: 'roboto-bold'
-  }
 })

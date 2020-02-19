@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { View, StyleSheet, TextInput, Button, Modal, Alert } from 'react-native'
+import { View, StyleSheet, TextInput, Modal, Alert } from 'react-native'
+import { AntDesign, MaterialIcons } from '@expo/vector-icons'
+import { ButtonCustom } from './ui/ButtonCustom'
 import { THEME } from '../theme'
 
 export const EditModal = ({ visible, onCancel, value, onSave }) => {
@@ -31,12 +33,15 @@ export const EditModal = ({ visible, onCancel, value, onSave }) => {
           maxLength={64}
         />
         <View style={styles.buttons}>
-          <Button
-            title='Отменить'
+          <ButtonCustom
             onPress={onCancel}
             color={THEME.DANGER_COLOR}
-          />
-          <Button title='Сохранить' onPress={saveHandler} />
+          >
+            <MaterialIcons name='cancel' size={THEME.ICON_SIZE} />
+          </ButtonCustom>
+          <ButtonCustom onPress={saveHandler} >
+            <AntDesign name='save' size={THEME.ICON_SIZE}/>
+          </ButtonCustom>
         </View>
       </View>
     </Modal>

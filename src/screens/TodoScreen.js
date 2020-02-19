@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text, Button } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+import { AntDesign, MaterialIcons } from '@expo/vector-icons'
 import { THEME } from '../theme'
+import { TextRoboto } from '../components/ui/TextRoboto'
+import { ButtonCustom } from '../components/ui/ButtonCustom'
 import { AppCard } from '../components/ui/AppCard'
 import { EditModal } from '../components/EditModal'
+
 
 export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
   const [modal, setModal] = useState(false)
@@ -22,20 +26,28 @@ export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
       />
 
       <AppCard style={styles.card}>
-        <Text style={styles.title}>{todo.title}</Text>
-        <Button title='Ред.' onPress={() => setModal(true)} />
+        <TextRoboto style={styles.title}>{todo.title}</TextRoboto>
+        <ButtonCustom onPress={() => setModal(true)} >
+          <AntDesign name='edit' size={THEME.ICON_SIZE} />
+        </ButtonCustom>
       </AppCard>
 
       <View style={styles.buttons}>
         <View style={styles.button}>
-          <Button title='Назад' onPress={goBack} color={THEME.GREY_COLOR} />
+          <ButtonCustom
+             onPress={goBack} 
+             color={THEME.GREY_COLOR}
+          >
+            <MaterialIcons name='arrow-back' size={THEME.ICON_SIZE} />
+          </ButtonCustom>
         </View>
         <View style={styles.button}>
-          <Button
-            title='Удалить'
+          <ButtonCustom
             color={THEME.DANGER_COLOR}
             onPress={() => onRemove(todo.id)}
-          />
+          >
+            <MaterialIcons name='delete' size={THEME.ICON_SIZE} />
+          </ButtonCustom>
         </View>
       </View>
     </View>
