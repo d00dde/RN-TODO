@@ -1,16 +1,16 @@
 import React from 'react'
-import { View, StyleSheet, TouchableOpacity, Vibration } from 'react-native'
+import { View, StyleSheet, TouchableOpacity, TouchableNativeFeedback, Platform } from 'react-native'
 import { TextRobotoBold } from './TextRobotoBold'
 import { THEME } from '../../theme'
 
 export const ButtonCustom = ({ children, onPress, color = THEME.MAIN_COLOR }) => {
-
+  const Wrapper = Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity
   return (
-    <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+    <Wrapper onPress={onPress} activeOpacity={0.7}>
       <View style={{...styles.button, backgroundColor: color}} >
         <TextRobotoBold style={styles.text}>{children}</TextRobotoBold>
       </View>
-    </TouchableOpacity>
+    </Wrapper>
   )
 }
 const styles = StyleSheet.create({

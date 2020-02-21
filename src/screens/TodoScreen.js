@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Dimensions } from 'react-native'
 import { AntDesign, MaterialIcons } from '@expo/vector-icons'
 import { THEME } from '../theme'
 import { TextRoboto } from '../components/ui/TextRoboto'
 import { ButtonCustom } from '../components/ui/ButtonCustom'
 import { AppCard } from '../components/ui/AppCard'
 import { EditModal } from '../components/EditModal'
-
 
 export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
   const [modal, setModal] = useState(false)
@@ -64,7 +63,7 @@ const styles = StyleSheet.create({
     padding: 15
   },
   button: {
-    width: '40%'
+    width: Dimensions.get('window').width > 400 ? 150 : 100
   },
   title: {
     fontSize: 20
