@@ -1,11 +1,11 @@
 import React from 'react'
 import { View, StyleSheet, Platform } from 'react-native'
 import { THEME } from '../theme'
-import { TextRobotoBold } from './ui/TextRobotoBold'
+import { AppTextBold } from './ui/AppTextBold'
 
 export const Navbar = ({ title }) => {
   return (
-    <View 
+    <View
       style={{
         ...styles.navbar,
         ...Platform.select({
@@ -14,7 +14,7 @@ export const Navbar = ({ title }) => {
         })
       }}
     >
-      <TextRobotoBold style={styles.text}>{title}</TextRobotoBold>
+      <AppTextBold style={styles.text}>{title}</AppTextBold>
     </View>
   )
 }

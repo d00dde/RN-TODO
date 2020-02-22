@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
-import { TextRoboto } from './ui/TextRoboto'
+import { AppText } from '../components/ui/AppText'
 
 export const Todo = ({ todo, onRemove, onOpen }) => {
   return (
@@ -10,7 +10,7 @@ export const Todo = ({ todo, onRemove, onOpen }) => {
       onLongPress={onRemove.bind(null, todo.id)}
     >
       <View style={styles.todo}>
-        <TextRoboto >{todo.title}</TextRoboto>
+        <AppText>{todo.title}</AppText>
       </View>
     </TouchableOpacity>
   )
